@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { PropType, computed } from 'vue';
+  import { type PropType, computed } from 'vue';
   import { useRouter, useRoute } from 'vue-router';
   import { useTabBarStore } from '@/store';
   import type { TagProps } from '@/store/modules/tab-bar/types';
@@ -77,7 +77,7 @@
     itemData: {
       type: Object as PropType<TagProps>,
       default() {
-        return [];
+        return null;
       },
     },
     index: {
@@ -124,7 +124,7 @@
   const findCurrentRouteIndex = () => {
     return tagList.value.findIndex((el) => el.fullPath === route.fullPath);
   };
-  const actionSelect = async (value: any) => {
+  const actionSelect = async (value: string) => {
     const { itemData, index } = props;
     const copyTagList = [...tagList.value];
     if (value === Eaction.current) {
