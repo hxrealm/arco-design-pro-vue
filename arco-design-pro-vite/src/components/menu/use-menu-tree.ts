@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import { RouteRecordRaw, RouteRecordNormalized } from 'vue-router';
+import type { RouteRecordRaw, RouteRecordNormalized } from 'vue-router';
 import usePermission from '@/hooks/permission';
 import { useAppStore } from '@/store';
 import appClientMenus from '@/router/app-menus';
@@ -22,7 +22,7 @@ export default function useMenuTree() {
     function travel(_routes: RouteRecordRaw[], layer: number) {
       if (!_routes) return null;
 
-      const collector: any = _routes.map((element) => {
+      const collector = _routes.map((element) => {
         // no access
         if (!permission.accessRouter(element)) {
           return null;
@@ -42,13 +42,13 @@ export default function useMenuTree() {
         // Associated child node
         const subItem = travel(element.children, layer + 1);
 
-        if (subItem.length) {
-          element.children = subItem;
+        if (subItem?.length) {
+          element.children = subItem as RouteRecordRaw[] || [];
           return element;
         }
         // the else logic
         if (layer > 1) {
-          element.children = subItem;
+          element.children = subItem as RouteRecordRaw[] || [];
           return element;
         }
 

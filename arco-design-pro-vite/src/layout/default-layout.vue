@@ -63,7 +63,7 @@
   const route = useRoute();
   const permission = usePermission();
   useResponsive(true);
-  const navbarHeight = `60px`;
+  const navbarHeight = "60px";
   const navbar = computed(() => appStore.navbar);
   const renderMenu = computed(() => appStore.menu && !appStore.topMenu);
   const hideMenu = computed(() => appStore.hideMenu);

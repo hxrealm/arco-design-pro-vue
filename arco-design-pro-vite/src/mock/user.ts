@@ -4,7 +4,7 @@ import setupMock, {
   failResponseWrap,
 } from '@/utils/setup-mock';
 
-import { MockParams } from '@/types/mock';
+import type { MockParams } from '@/types/mock';
 import { isLogin } from '@/utils/auth';
 
 setupMock({

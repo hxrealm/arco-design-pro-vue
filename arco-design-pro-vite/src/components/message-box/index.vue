@@ -29,8 +29,8 @@
   import {
     queryMessageList,
     setMessageStatus,
-    MessageRecord,
-    MessageListType,
+    type MessageRecord,
+    type MessageListType,
   } from '@/api/message';
   import useLoading from '@/hooks/loading';
   import List from './list.vue';
@@ -97,7 +97,7 @@
   };
   const formatUnreadLength = (type: string) => {
     const list = getUnreadList(type);
-    return list.length ? `(${list.length})` : ``;
+    return list.length ? `(${list.length})` : "";
   };
   const handleItemClick = (items: MessageListType) => {
     if (renderList.value.length) readMessage([...items]);

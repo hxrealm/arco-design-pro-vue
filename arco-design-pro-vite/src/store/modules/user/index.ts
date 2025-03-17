@@ -3,11 +3,11 @@ import {
   login as userLogin,
   logout as userLogout,
   getUserInfo,
-  LoginData,
+  type LoginData,
 } from '@/api/user';
 import { setToken, clearToken } from '@/utils/auth';
 import { removeRouteListener } from '@/utils/route-listener';
-import { UserState } from './types';
+import type { UserState } from './types';
 import useAppStore from '../app';
 
 const useUserStore = defineStore('user', {
